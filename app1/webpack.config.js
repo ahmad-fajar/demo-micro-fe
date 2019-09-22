@@ -8,10 +8,10 @@ module.exports = {
     [appName]: './index.js',
   },
   output : {
-    filename: 'index.js',
+    filename: `${appName}.js`,
     path : path.resolve(__dirname , 'build'),
     library: appName,
-    libraryTarget: 'var',
+    libraryTarget: 'amd',
   },
   module : {
     rules : [

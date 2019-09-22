@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "http-proxy-middleware": "^0.20.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.2"
+    "react-scripts": "3.1.2",
+    "single-spa": "^4.4.1",
+    "single-spa-react": "^2.10.2"
   },
   "scripts": {
     "start": "react-scripts start",
