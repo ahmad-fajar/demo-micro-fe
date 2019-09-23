@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "single-spa-react": "^2.10.2"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
@@ -25,8 +26,8 @@
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.1"
   },
-  "babel":{
-    "presets" : [
+  "babel": {
+    "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
     ]
