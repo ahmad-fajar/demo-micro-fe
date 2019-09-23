@@ -13,7 +13,7 @@ import './helper/system';
 
 import { BrowserRouter, Route } from 'react-router-dom';
 
-function startApp() {
+async function startApp() {
   // appRegistry.forEach(a => {
   //   registerApplication(
   //     a.appName,
@@ -25,10 +25,10 @@ function startApp() {
   //   );
   // });
   
-  registerApplication(
+  await registerApplication(
     'app1',
   
-    async () => await window.SystemJS.import('http://localhost:9001/app1.js'),
+    async () => await window.SystemJS.import('/app1/app1.js'),
   
     () => window.location.pathname.startsWith('/app1'),
   
@@ -37,6 +37,7 @@ function startApp() {
   
   start();
 }
+startApp();
 
 ReactDOM.render(
   (
@@ -51,4 +52,4 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-startApp();
+// startApp();
