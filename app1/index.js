@@ -39,7 +39,6 @@ function domElementGetter() {
   if (!el) {
     el = document.createElement('div');
     el.id = APP_NAME;
-    document.body.appendChild(el);
   }
 
   let app = document.getElementById(MOUNT_DIV);

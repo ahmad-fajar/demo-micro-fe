@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+#ex2-container, #ex2-container * {
+  border: 1px solid green;
+  box-sizing: border-box;
+}
+
+#container23 {
+  display: flex;
+  height: 12em;
+}
+
+#container23 > div {
+  width: 50%;
+  box-sizing: border-box;
+}

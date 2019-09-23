@@ -26,9 +26,8 @@ const SideBar = p => {
         <div className="collapse navbar-collapse" id="navbarColor02">
           <ul className="navbar-nav mr-auto">
             {navItem('Home', '')}
-            {navItem('App1', 'app1')}
-            {navItem('App2', 'app2')}
-            <li>{activeItem}</li>
+            {navItem('Example 1', 'ex1')}
+            {navItem('Example 2', 'ex2')}
           </ul>
         </div>
       </nav>
