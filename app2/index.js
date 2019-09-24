@@ -1,20 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import singleSpaReact from 'single-spa-react';
+
+import App from './app';
+
 import './index.css';
 
 const AppRoot = p => {
-  console.log('props: ', p)
-  const s = {
-    color: 'blue',
-    fontSize: '48px',
-    fontWeight: 'bold',
-  };
-  return(
-    <div style={s}>
-      Hello App2 World
-    </div>
-  )
+  return (
+    <Provider store={p.store}>
+      <App {...p} />
+    </Provider>
+  );
 };
 
 // ReactDOM.render(<AppRoot />, document.getElementById('container2'));
@@ -24,6 +22,7 @@ const reactLifeCycles = singleSpaReact({
   ReactDOM,
   domElementGetter,
   rootComponent: AppRoot,
+  suppressComponentDidCatchWarning: true,
 });
 
 export const bootstrap = [reactLifeCycles.bootstrap];

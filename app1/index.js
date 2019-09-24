@@ -24,6 +24,7 @@ const reactLifeCycles = singleSpaReact({
   ReactDOM,
   domElementGetter,
   rootComponent: AppRoot,
+  suppressComponentDidCatchWarning: true,
 });
 
 export const bootstrap = [reactLifeCycles.bootstrap];

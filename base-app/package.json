@@ -6,8 +6,10 @@
     "http-proxy-middleware": "^0.20.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-redux": "^7.1.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.2",
+    "redux": "^4.0.4",
     "single-spa": "^4.4.1",
     "single-spa-react": "^2.10.2"
   },

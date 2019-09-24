@@ -1,35 +1,53 @@
-import React from 'react';
-import { registerApplication, start } from 'single-spa';
+import React, { useState } from 'react';
+import { registerApplication, start, triggerAppChange } from 'single-spa';
+import { connect } from 'react-redux';
 
-const apps = [
-  {
-    name: 'app2',
-    js: '/app2/app2.js',
-  },
-  {
-    name: 'app3',
-    js: '/app3/app3.js',
-  },
-];
+import store from '../store';
 
-async function startApp() {
-  await apps.forEach(a => {
-    registerApplication(
-      a.name,
-
-      async () => await window.SystemJS.import(a.js),
-
-      () => window.location.pathname.startsWith('/ex2'),
-
-      { moreProps: 'another props' },
-    );
-  });
-
-  start();
-}
-startApp();
+let hasRegister = false;
 
 const App23Container = p => {
+  const apps = [
+    {
+      name: 'app2',
+      js: '/app2/app2.js',
+      props: {
+        store,
+      },
+    },
+    {
+      name: 'app3',
+      js: '/app3/app3.js',
+      props: {
+        store,
+      },
+    },
+  ];
+
+  async function startApp() {
+    await apps.forEach(a => {
+      registerApplication(
+        a.name,
+
+        async () => await window.SystemJS.import(a.js),
+
+        () => true,
+        // (location) => location.pathname.startsWith('/ex2'),
+
+        { ...a.props },
+      );
+    });
+
+    start();
+    return;
+  }
+
+  if(!hasRegister) {
+    startApp();
+    hasRegister = true;
+  }
+
+  console.log(p)
   return (
     <div id="ex2-container">
       <div>2 Apps, one page</div>
@@ -42,4 +60,13 @@ const App23Container = p => {
   );
 };
 
-export default App23Container;
+// export default App23Container;
+
+const mapState = s => {
+  const { appManager: a } = s;
+  return {
+    texts: a,
+  };
+}
+
+export default connect(mapState)(App23Container);

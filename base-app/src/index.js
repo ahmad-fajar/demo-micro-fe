@@ -6,6 +6,8 @@ import * as serviceWorker from './serviceWorker';
 
 import { registerApplication, start } from 'single-spa';
 
+import { Provider } from 'react-redux';
+import store from './store';
 
 // import SystemJS
 import './helper/system';
@@ -19,7 +21,7 @@ function startApp() {
 
     async () => await window.SystemJS.import('/app1/app1.js'),
 
-    () => window.location.pathname.startsWith('/ex1'),
+    (location) => location.pathname.startsWith('/ex1'),
 
     { sampleProp: 'just some random string' },
   );
@@ -31,7 +33,9 @@ startApp();
 ReactDOM.render(
   (
     <BrowserRouter>
-      <Route component={App}/>
+      <Provider store={store}>
+        <Route component={App}/>
+      </Provider>
     </BrowserRouter>
   ),
   document.getElementById('root')
