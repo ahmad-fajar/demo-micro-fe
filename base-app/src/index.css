@@ -12,17 +12,36 @@ code {
     monospace;
 }
 
-#ex2-container, #ex2-container * {
-  border: 1px solid green;
-  box-sizing: border-box;
+#ex2-container {
+  font-size: 32px;
+  font-weight: normal;
+}
+
+#ex2-container p span {
+  font-weight: bold;
+}
+
+#example2-header p {
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 #container23 {
   display: flex;
-  height: 12em;
+  height: 10em;
 }
 
 #container23 > div {
-  width: 50%;
+  border: 1px solid grey;
   box-sizing: border-box;
+  width: 50%;
+}
+
+#container23 input {
+  border-radius: 4px;
+  height: 1.5em;
+}
+
+#container23 p {
+  color: red;
 }

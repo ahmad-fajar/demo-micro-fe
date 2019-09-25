@@ -2,19 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const App = p => {
-  const s = {
-    color: 'blue',
-    fontSize: '48px',
-    fontWeight: 'bold',
-  };
-
   return (
-    <div style={s}>
+    <div>
       Hello App3 World
 
       <div>
-        ---- {p.txt2} ----
-        ---- {p.txt3} ----
+        <p>
+          Message from app2: <span>{p.txt2}</span>
+        </p>
       </div>
       <input
         defaultValue={p.text}
@@ -27,7 +22,6 @@ const App = p => {
 const mapStateToProps = s => {
   return {
     txt2: s.appManager.app2Txt,
-    txt3: s.appManager.app3Txt,
   };
 };
 

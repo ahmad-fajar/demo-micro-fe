@@ -1,6 +1,6 @@
 const defaultState = {
-  app2Txt: 'Hello from app2',
-  app3Txt: 'Hello from app3',
+  app2Txt: '',
+  app3Txt: '',
 };
 
 const appReducer = (s = defaultState, action) => {

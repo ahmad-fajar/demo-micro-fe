@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { registerApplication, start, triggerAppChange } from 'single-spa';
+import React from 'react';
+import { registerApplication, start } from 'single-spa';
 import { connect } from 'react-redux';
 
 import store from '../store';
@@ -31,8 +31,7 @@ const App23Container = p => {
 
         async () => await window.SystemJS.import(a.js),
 
-        () => true,
-        // (location) => location.pathname.startsWith('/ex2'),
+        location => location.pathname.startsWith('/ex2'),
 
         { ...a.props },
       );
@@ -47,10 +46,13 @@ const App23Container = p => {
     hasRegister = true;
   }
 
-  console.log(p)
   return (
     <div id="ex2-container">
-      <div>2 Apps, one page</div>
+      <div id="example2-header">
+        <p>2 Apps, one page</p>
+        <p>Message from app2: <span>{p.app2Txt}</span></p>
+        <p>Message from app3: <span>{p.app3Txt}</span></p>
+      </div>
 
       <div id="container23">
         <div id="container2">&nbsp;</div>
@@ -60,12 +62,11 @@ const App23Container = p => {
   );
 };
 
-// export default App23Container;
-
 const mapState = s => {
   const { appManager: a } = s;
   return {
-    texts: a,
+    app2Txt: a.app2Txt,
+    app3Txt: a.app3Txt,
   };
 }
 
